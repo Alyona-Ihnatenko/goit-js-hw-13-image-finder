@@ -1,5 +1,6 @@
-import apiService from './apiService';
-import {error, alert} from './notification'
+
+import apiService from './apiService.js';
+import {error, alert} from './notification.js';
 import {
   updateLi_item_Markup,
   cleanMarkupBefore,
