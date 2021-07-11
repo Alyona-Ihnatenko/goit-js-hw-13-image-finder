@@ -1,9 +1,9 @@
-import li_itemTPL from '../templates/create-gallery.hbs';
+import liItemTPL from '../templates/create-gallery.hbs';
 import refs from './refs.js';
 
-function updateLi_item_Markup(data) {
+function updateLiItemMarkup(data) {
   
-  const markup = li_itemTPL(data);
+  const markup = liItemTPL(data);
   refs.galleryUl.insertAdjacentHTML('beforeend', markup);
   
   showBtnLoadMore();
@@ -30,7 +30,7 @@ function scrollPage(top,width){
 }
 
 export {
-  updateLi_item_Markup,
+  updateLiItemMarkup,
   cleanMarkupBefore,
   scrollPage,
   hideBtnLoadMore,

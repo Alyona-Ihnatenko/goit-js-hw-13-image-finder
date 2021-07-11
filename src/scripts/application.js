@@ -2,7 +2,7 @@
 import apiService from './apiService.js';
 import {error, alert} from './notification.js';
 import {
-  updateLi_item_Markup,
+  updateLiItemMarkup,
   cleanMarkupBefore,
   scrollPage,
   hideBtnLoadMore,
@@ -20,37 +20,37 @@ refs.searcForm.addEventListener('submit', (event) => {
 
   apiService.resetPage();
   apiService.getResourse().then(data => {
-    const mach = data.hits.length 
+    const mach = data.hits.length ;
     if(mach === 0){
       error(`На Ваш запрос
       ${apiService.search}
       найдено ${mach} 
-      картинок`)
+      картинок`);
       hideBtnLoadMore();
-      return
+      return;
     }
    
     alert({
-      text:(`Ваш запрос ${apiService.search}  
+      text:(`Ваш запрос ${apiService.search} 
       обработан успешно!
       Найдено
       ${data.total} картинок`),
       hide:true,
       delay:3500,
     });
-    updateLi_item_Markup(data)
+    updateLiItemMarkup(data);
 
     if(mach < 12){
       hideBtnLoadMore();
     }
-  })
+  });
 });
 
 refs.loadMore.addEventListener('click', (e) => {
   const top = e.target.getBoundingClientRect().top;
   const width = e.target.getBoundingClientRect().width;
   apiService.getResourse().then(data => {
-    const mach = data.hits.length 
+    const mach = data.hits.length ;
     alert({
       text:(`Ваш запрос ${apiService.search}  
       обработан успешно`),
@@ -58,7 +58,7 @@ refs.loadMore.addEventListener('click', (e) => {
       delay:2500,
     });
     
-    updateLi_item_Markup(data);
+    updateLiItemMarkup(data);
   
     scrollPage(top, width);
     if(mach < 12){

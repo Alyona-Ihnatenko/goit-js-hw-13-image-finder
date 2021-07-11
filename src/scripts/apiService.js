@@ -2,19 +2,20 @@ import {error} from './notification.js';
 export default {
   page:1,
   search: '',
-  per_page: 12,
+  perPage: 12,
   APIkey: '22450906-3e002c9d2b529a68e38cedb68',
   baseURL: "https://pixabay.com/api/?image_type=photo&orientation=horizontal&q",
   async getResourse   ()  {
     try{
-      const responce = await fetch(`${this.baseURL}=${this.search}&page=${this.page}&per_page=${this.per_page}&key=${this.APIkey}`);
+      const responce = await fetch(`${this.baseURL}=${this.search}
+      &page=${this.page}&per_page=${this.perPage}&key=${this.APIkey}`);
       this.page +=1;
 
       return await  responce.json();
     }
     catch(err) {
       throw error({
-         text:(`Ошибка по ${this.search} статус${responce.status}`),
+         text:(`Ошибка по ${this.search} статус${this.status}`),
          hide:true,
          delay:3000,
        });
@@ -25,4 +26,4 @@ export default {
   this.page = 1;
   },
   
-}
+};

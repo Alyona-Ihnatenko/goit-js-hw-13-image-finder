@@ -5,7 +5,7 @@ refs.galleryUl.addEventListener('click', openLargeImage);
 
 function openLargeImage(event){
     if(event.target.nodeName !== "IMG"){
-        return
+        return;
     }
     const largeImageURL = event.target.dataset.source;
     _openMobalBasic(largeImageURL);
