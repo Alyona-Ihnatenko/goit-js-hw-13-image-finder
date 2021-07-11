@@ -8,7 +8,7 @@ export default {
   async getResourse   ()  {
     try{
       const responce = await fetch(`${this.baseURL}=${this.search}
-      &page=${this.page}&per_page=${this.perPage}&key=${this.APIkey}`);
+      &page=${this.page}&perPage=${this.perPage}&key=${this.APIkey}`);
       this.page +=1;
 
       return await  responce.json();
